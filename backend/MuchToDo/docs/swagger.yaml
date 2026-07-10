@@ -1,0 +1,21 @@
+basePath: /
+info:
+  contact:
+    email: innocent@altschoolafrica.com
+    name: API Support - Innocent
+    url: https://github.com/Innocent9712
+  description: This is an API for MuchToDo application with user authentication.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: MuchToDo API
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  ApiKeyAuth:
+    description: '"Type ''Bearer'' followed by a space and a JWT token."'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
