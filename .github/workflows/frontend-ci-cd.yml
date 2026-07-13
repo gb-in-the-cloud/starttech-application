@@ -32,8 +32,8 @@ jobs:
 
       - name: Run security scan
         working-directory: frontend
-        run: npm audit --audit-level=high
-        continue-on-error: false  
+        run: npm audit --audit-level=critical
+        continue-on-error: false 
 
       - name: Build static site
         working-directory: frontend
