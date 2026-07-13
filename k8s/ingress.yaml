@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+   name: starttech-backend
+   namespace: default
+   annotations: 
+     kubernetes.io/ingress.class: alb
+     alb.ingress.kubernetes.io/scheme: internet-facing
+     alb.ingress.kubernetes.io/target-type: internet-facing
+     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+     alb.ingress.kubernetes.io/healthcheck-path: /health
+     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+     alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
+     alb.ingress.kubernetes.io/unhealthy-threshold-count: '3'
+spec:
+ rules:
+    - http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-api
+                port:
+                  number: 80
+          - path: /health
+            pathType: Exact
+            backend:
+              service:
+                name: backend-api
+                port:
+                  number: 80
