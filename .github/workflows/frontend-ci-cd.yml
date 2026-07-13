@@ -54,10 +54,7 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch'
     environment: production
-    defaults:
-      run:
-        working-directory: frontend
-
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
