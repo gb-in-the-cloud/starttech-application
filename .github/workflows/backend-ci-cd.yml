@@ -16,10 +16,10 @@ on:
   workflow_dispatch:
  
 env:
-  AWS_REGION:       ${{ secrets.AWS_REGION }}
-  ECR_REGISTRY:     ${{ secrets.ECR_REGISTRY }}
-  ECR_REPOSITORY:   starttech-backend-api
-  EKS_CLUSTER_NAME: starttech-cluster
+  AWS_REGION:       ${{ vars.AWS_REGION }}
+  ECR_REGISTRY:     ${{ vars.ECR_REGISTRY }}
+  ECR_REPOSITORY:   ${{ vars.ECR_REPOSITORY }}
+  EKS_CLUSTER_NAME: ${{ vars.EKS_CLUSTER_NAME }}
   IMAGE_TAG:        ${{ github.sha }}
  
 jobs:
@@ -83,7 +83,7 @@ jobs:
  
       - name: Build Docker image
         id: build-image
-        working-directory: backend/MuchToDo
+        working-directory: backend
         run: |
           IMAGE_URI=${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
           LATEST_URI=${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
