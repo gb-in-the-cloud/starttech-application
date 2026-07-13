@@ -25,13 +25,16 @@ jobs:
           node-version: '24'
          
       - name: Install dependencies
+        working-directory: frontend
         run: npm ci
 
       - name: Run security scan
+        working-directory: frontend
         run: npm audit --audit-level=high
         continue-on-error: false  
 
       - name: Build static site
+        working-directory: frontend
         run: npm run build
         env:
             REACT_APP_API_URL: /api/v1
