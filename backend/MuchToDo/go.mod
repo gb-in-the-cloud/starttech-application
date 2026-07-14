@@ -8,7 +8,7 @@ require (
 	github.com/redis/go-redis/v9 v9.14.0
 	github.com/spf13/viper v1.21.0
 	github.com/swaggo/swag v1.16.6
-	go.mongodb.org/mongo-driver v1.17.4
+	go.mongodb.org/mongo-driver v1.17.9
 )
 
 require (
