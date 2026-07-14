@@ -19,5 +19,5 @@ metadata:
   namespace: default
 type: Opaque
 stringData:
-  MONGO_URI: "mongodb+srv://starttech:Lizzy@poll77@starttech-cluster.s9fnoze.mongodb.net/starttech?retryWrites=true&w=majority&appName=starttech-cluster"
+  MONGO_URI: "mongodb+srv://starttech:Lizzy%40poll77@starttech-cluster.s9fnoze.mongodb.net/starttech?retryWrites=true&w=majority&appName=starttech-cluster"
   JWT_SECRET_KEY: "rs8A/Gzf/+SFprOFDvIoEzdDmZFFz6sE2JCs8Fdzcvw="
