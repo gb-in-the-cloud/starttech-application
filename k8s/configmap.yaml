@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: default
+data:
+  REDIS_HOST: "starttech-redis.aq9jps.0001.euw3.cache.amazonaws.com"
+  PORT: "8080"
+  DB_NAME: "starttech"
+  LOG_LEVEL: "INFO"
+  LOG_FORMAT: "json"
+---
+# NOTE: Replace base64 values with your actual secrets
+# Generate base64: echo -n "your-value" | base64
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-secrets
+  namespace: default
+type: Opaque
+stringData:
+  MONGO_URI: "mongodb+srv://starttech:Lizzy@poll77@starttech-cluster.s9fnoze.mongodb.net/starttech?retryWrites=true&w=majority&appName=starttech-cluster"
+  JWT_SECRET_KEY: "rs8A/Gzf/+SFprOFDvIoEzdDmZFFz6sE2JCs8Fdzcvw="
