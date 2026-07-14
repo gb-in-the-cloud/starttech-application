@@ -5,11 +5,11 @@ metadata:
   namespace: default
   labels:
     app: backend-api
-  spec:
-   type: ClusterIP
-   selector: 
-     app: backend-api
-  ports: 
+spec:                  
+  type: ClusterIP
+  selector:
+    app: backend-api
+  ports:                
     - name: http
       port: 80
       targetPort: 8080
