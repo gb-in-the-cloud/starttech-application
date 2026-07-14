@@ -19,3 +19,7 @@ backend/bin/
 
 # Logs
 *.log
+
+#k8s
+.configmap.yaml
+.secret.yaml
