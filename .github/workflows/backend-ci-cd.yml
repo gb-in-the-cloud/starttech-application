@@ -149,7 +149,12 @@ jobs:
  
           echo "Updated deployment.yaml with image: $IMAGE_URI"
           cat k8s/deployment.yaml
- 
+      - name: Create Kubernetes secrets
+        run: |
+          kubectl create secret generic backend-secrets \
+            --from-literal=MONGO_URI="${{ secrets.MONGO_URI }}" \
+            --from-literal=JWT_SECRET_KEY="${{ secrets.JWT_SECRET_KEY }}" \
+            --dry-run=client -o yaml | kubectl apply -f -
       - name: Deploy to EKS
         run: |
           kubectl apply -f k8s/
